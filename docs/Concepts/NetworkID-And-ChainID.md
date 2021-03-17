@@ -4,11 +4,11 @@ description: Besu network ID and chain ID implementation
 
 # Network ID and chain ID
 
-Ethereum networks have two identifiers, a network ID and a chain ID. Although they often have the
-same value, they have different uses.
+Ethereum networks have two identifiers, a network ID and a chain ID.
+Although they often have the same value, they have different uses.
 
-Peer-to-peer communication between nodes uses the _network ID_, while the transaction signature
-process uses the _chain ID_.
+Peer-to-peer communication between nodes uses the _network ID_, while
+the transaction signature process uses the _chain ID_.
 
 !!! note
 
@@ -16,8 +16,9 @@ process uses the _chain ID_.
     the chain ID as part of the transaction signing process to protect against transaction
     replay attacks.
 
-For most networks, including MainNet and the public testnets, the network ID and the chain ID are
-the same, with the network ID defaulting to the chain ID, as specified in the genesis file.
+For most networks, including MainNet and the public testnets, the
+network ID and the chain ID are the same, with the network ID defaulting
+to the chain ID, as specified in the genesis file.
 
 !!! example "Chain ID in the Genesis File"
 
@@ -32,13 +33,16 @@ the same, with the network ID defaulting to the chain ID, as specified in the ge
     }
     ```
 
-Besu sets the chain ID (and by default the network ID) automatically, using either the
-[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) option or when specifying a
-network using the [`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The following
-table lists the available networks and their chain and network IDs.
+Besu sets the chain ID (and by default the network ID) automatically,
+using either the
+[`--genesis-file`](../Reference/CLI/CLI-Syntax.md#genesis-file) option
+or when specifying a network using the
+[`--network`](../Reference/CLI/CLI-Syntax.md#network) option. The
+following table lists the available networks and their chain and network
+IDs.
 
 | Network   | Chain | Chain ID | Network ID | Type        |
-|-----------|-------|----------|------------|-------------|
+| --------- | ----- | -------- | ---------- | ----------- |
 | `mainnet` | ETH   | 1        | 1          | Production  |
 | `ropsten` | ETH   | 3        | 3          | Test        |
 | `rinkeby` | ETH   | 4        | 4          | Test        |
@@ -50,7 +54,8 @@ table lists the available networks and their chain and network IDs.
 
 ## Specify a different network ID
 
-Usually the network ID is the same as the chain ID, but if you want to separate specific nodes from
-the rest of the network so they can't connect or synchronize with other nodes, you can override the
-default network ID for those nodes using the
+Usually the network ID is the same as the chain ID, but if you want to
+separate specific nodes from the rest of the network so they can't
+connect or synchronize with other nodes, you can override the default
+network ID for those nodes using the
 [`--network-id`](../Reference/CLI/CLI-Syntax.md#network-id) option.

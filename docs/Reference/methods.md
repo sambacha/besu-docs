@@ -1,4 +1,4 @@
-------------------------------------------------------------------------
+---
 
 ## description: Hyperledger Besu JSON-RPC API methods reference
 
@@ -161,17 +161,17 @@ performance.
 
 #### Returns
 
-`result` : *object* - Log bloom index details:
+`result` : _object_ - Log bloom index details:
 
--   `quantity` : `startBlock` - Starting block for the last requested
-    cache generation.
--   `quantity` : `endBlock` - Ending block for the last requested cache
-    generation.
--   `quantity` : `currentBlock` - The most recent block added to the
-    cache.
--   `boolean` : `indexing` - `true` if indexing is in progress.
--   `boolean` : `true` indicates acceptance of the request from this
-    call to generate the cache.
+- `quantity` : `startBlock` - Starting block for the last requested
+  cache generation.
+- `quantity` : `endBlock` - Ending block for the last requested cache
+  generation.
+- `quantity` : `currentBlock` - The most recent block added to the
+  cache.
+- `boolean` : `indexing` - `true` if indexing is in progress.
+- `boolean` : `true` indicates acceptance of the request from this call
+  to generate the cache.
 
 !!! example
 
@@ -260,15 +260,14 @@ None
 
 Properties of the node object are:
 
--   `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) of the
-    node.
--   `listenAddr` - Host and port for the node.
--   `name` - Client name.
--   `id` - [Node public key](../Concepts/Node-Keys.md#node-public-key).
--   `ports` - Peer discovery and listening
-    [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration).
--   `protocols` - List of objects containing information for each
-    Ethereum sub-protocol.
+- `enode` - [Enode URL](../Concepts/Node-Keys.md#enode-url) of the node.
+- `listenAddr` - Host and port for the node.
+- `name` - Client name.
+- `id` - [Node public key](../Concepts/Node-Keys.md#node-public-key).
+- `ports` - Peer discovery and listening
+  [ports](../HowTo/Find-and-Connect/Managing-Peers.md#port-configuration).
+- `protocols` - List of objects containing information for each Ethereum
+  sub-protocol.
 
 !!! note
 
@@ -342,25 +341,24 @@ None
 
 #### Returns
 
-`result` : *array* of *objects* - Object returned for each remote node.
+`result` : _array_ of _objects_ - Object returned for each remote node.
 
 Properties of the remote node object are:
 
--   `version` - P2P protocol version.
--   `name` - Client name.
--   `caps` - List of Ethereum sub-protocol capabilities.
--   `network` - Local and remote addresses established at time of
-    bonding with the peer. The remote address might not match the hex
-    value for `port`. The remote address depends on which node initiated
-    the connection.
--   `port` - Port on the remote node on which P2P discovery is
-    listening.
--   `id` - Node public key. Excluding the `0x` prefix, the node public
-    key is the ID in the enode URL `enode://<id ex 0x>@<host>:<port>`.
--   `protocols` - [Current state of
-    peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
-    including `difficulty` and `head`. `head` is the hash of the highest
-    known block for the peer.
+- `version` - P2P protocol version.
+- `name` - Client name.
+- `caps` - List of Ethereum sub-protocol capabilities.
+- `network` - Local and remote addresses established at time of bonding
+  with the peer. The remote address might not match the hex value for
+  `port`. The remote address depends on which node initiated the
+  connection.
+- `port` - Port on the remote node on which P2P discovery is listening.
+- `id` - Node public key. Excluding the `0x` prefix, the node public key
+  is the ID in the enode URL `enode://<id ex 0x>@<host>:<port>`.
+- `protocols` -
+  [Current state of peer](../HowTo/Find-and-Connect/Managing-Peers.md#monitoring-peer-connections)
+  including `difficulty` and `head`. `head` is the hash of the highest
+  known block for the peer.
 
 !!! example
 
@@ -461,7 +459,7 @@ None
 
 #### Returns
 
-`result` : *string* - Current client version.
+`result` : _string_ - Current client version.
 
 !!! example
 
@@ -500,7 +498,7 @@ SHA3-256.
 
 #### Returns
 
-`result` (*DATA*) - SHA3 result of the input data.
+`result` (_DATA_) - SHA3 result of the input data.
 
 !!! example
 
@@ -538,7 +536,7 @@ None
 
 #### Returns
 
-`result` : *string* - Current network ID.
+`result` : _string_ - Current network ID.
 
 \| Network ID \| Chain \| Network \| Description
 \|------------\|-------\|---------\|-------------------------------\| \|
@@ -601,7 +599,7 @@ None
 
 #### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively listening for
+`result` (_BOOLEAN_) - `true` if the client is actively listening for
 network connections; otherwise `false`.
 
 !!! example
@@ -638,7 +636,7 @@ None
 
 #### Returns
 
-`result` : *integer* - Number of connected peers in hexadecimal.
+`result` : _integer_ - Number of connected peers in hexadecimal.
 
 !!! example
 
@@ -674,7 +672,7 @@ None
 
 #### Returns
 
-`result` : *string* - [Enode URL](../Concepts/Node-Keys.md#enode-url) of
+`result` : _string_ - [Enode URL](../Concepts/Node-Keys.md#enode-url) of
 the node.
 
 !!! example
@@ -712,7 +710,7 @@ None
 
 #### Returns
 
-`result` : *objects* - Enabled services.
+`result` : _objects_ - Enabled services.
 
 !!! example
 
@@ -770,26 +768,26 @@ None
 
 #### Returns
 
-`result` : *Object\|Boolean* - Object with synchronization status data
+`result` : _Object\|Boolean_ - Object with synchronization status data
 or `false` if not synchronizing:
 
--   `startingBlock` : *quantity* - Index of the highest block on the
-    blockchain when the network synchronization starts.
--   `currentBlock` : *quantity* - Index of the latest block (also known
-    as the best block) for the current node. This is the same index that
-    [`eth_blockNumber`](#eth_blocknumber) returns.
--   `highestBlock`: *quantity* - Index of the highest known block in the
-    peer network (that is, the highest block so far discovered among
-    peer nodes). This is the same value as `currentBlock` if the current
-    node has no peers.
--   `pulledStates`: *quantity* - If fast synchronizing, the number of
-    state entries fetched so far, or `null` if this is not known or not
-    relevant. If full synchronizing or fully synchronized, this field is
-    not returned.
--   `knownStates`: *quantity* - If fast synchronizing, the number of
-    states the node knows of so far, or `null` if this is not known or
-    not relevant. If full synchronizing or fully synchronized, this
-    field is not returned.
+- `startingBlock` : _quantity_ - Index of the highest block on the
+  blockchain when the network synchronization starts.
+- `currentBlock` : _quantity_ - Index of the latest block (also known as
+  the best block) for the current node. This is the same index that
+  [`eth_blockNumber`](#eth_blocknumber) returns.
+- `highestBlock`: _quantity_ - Index of the highest known block in the
+  peer network (that is, the highest block so far discovered among peer
+  nodes). This is the same value as `currentBlock` if the current node
+  has no peers.
+- `pulledStates`: _quantity_ - If fast synchronizing, the number of
+  state entries fetched so far, or `null` if this is not known or not
+  relevant. If full synchronizing or fully synchronized, this field is
+  not returned.
+- `knownStates`: _quantity_ - If fast synchronizing, the number of
+  states the node knows of so far, or `null` if this is not known or not
+  relevant. If full synchronizing or fully synchronized, this field is
+  not returned.
 
 !!! example
 
@@ -867,7 +865,7 @@ None
 
 #### Returns
 
-`result` : *quantity* - Chain ID, in hexadecimal.
+`result` : _quantity_ - Chain ID, in hexadecimal.
 
 !!! example
 
@@ -903,7 +901,7 @@ None
 
 #### Returns
 
-`result` : *quantity* - Ethereum protocol version.
+`result` : _quantity_ - Ethereum protocol version.
 
 !!! example
 
@@ -975,7 +973,7 @@ None
 
 #### Returns
 
-`result` : *data* - Coinbase address.
+`result` : _data_ - Coinbase address.
 
 !!! example
 
@@ -1013,7 +1011,7 @@ None
 
 #### Returns
 
-`result` (*BOOLEAN*) - `true` if the client is actively mining new
+`result` (_BOOLEAN_) - `true` if the client is actively mining new
 blocks, otherwise `false`.
 
 !!! example
@@ -1211,7 +1209,7 @@ None
 
 #### Returns
 
-`result` : *QUANTITY* - Hexadecimal integer representing the index
+`result` : _QUANTITY_ - Hexadecimal integer representing the index
 corresponding to the block number of the current chain head.
 
 !!! example
@@ -1275,12 +1273,12 @@ Returns the account balance of the specified address.
 `DATA` - 20-byte account address from which to retrieve the balance.
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result` : *QUANTITY* - Current balance, in wei, as a hexadecimal value.
+`result` : _QUANTITY_ - Current balance, in wei, as a hexadecimal value.
 
 !!! example
 
@@ -1392,8 +1390,8 @@ Returns miner data for the specified block.
 #### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
@@ -1454,25 +1452,25 @@ block hash.
 `ARRAY` - Array of 32-byte storage keys to generate proofs for.
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result`: *Object* - Account details:
+`result`: _Object_ - Account details:
 
--   `balance`:`Quantity` - Account balance.
--   `codeHash`:`Data, 32-byte` - Hash of the account code.
--   `nonce`:`Quantity` - Number of transactions sent from the account.
--   `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
--   `accountProof`:`Array` - RLP-encoded Merkle tree nodes, starting
-    with the `stateRoot`.
--   `storageProof`:`Array`- Storage entries. Each entry is an object
-    that displays:
-    -   `key`:`Quantity` - Storage key.
-    -   `value`:`Quantity` - Storage value.
-    -   `proof`:`Array` - RLP-encoded Merkle tree nodes, starting with
-        the `storageHash`.
+- `balance`:`Quantity` - Account balance.
+- `codeHash`:`Data, 32-byte` - Hash of the account code.
+- `nonce`:`Quantity` - Number of transactions sent from the account.
+- `storageHash`:`Data, 32-byte` - SHA3 of the `storageRoot`.
+- `accountProof`:`Array` - RLP-encoded Merkle tree nodes, starting with
+  the `stateRoot`.
+- `storageProof`:`Array`- Storage entries. Each entry is an object that
+  displays:
+  - `key`:`Quantity` - Storage key.
+  - `value`:`Quantity` - Storage value.
+  - `proof`:`Array` - RLP-encoded Merkle tree nodes, starting with the
+    `storageHash`.
 
 !!! example
 
@@ -1534,12 +1532,12 @@ Returns the value of a storage position at a specified address.
 `QUANTITY` - Integer index of the storage position.
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result` : *DATA* - The value at the specified storage position.
+`result` : _DATA_ - The value at the specified storage position.
 
 !!! example
 
@@ -1606,12 +1604,12 @@ transactions.
 `data` - 20-byte account address.
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result` : *quantity* - Integer representing the number of transactions
+`result` : _quantity_ - Integer representing the number of transactions
 sent from the specified address.
 
 !!! example
@@ -1740,12 +1738,12 @@ block number.
 #### Parameters
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result` : *QUANTITY* - Integer representing the number of transactions
+`result` : _QUANTITY_ - Integer representing the number of transactions
 in the specified block.
 
 !!! example
@@ -1925,8 +1923,8 @@ Returns uncle specified by block number and index.
 #### Parameters
 
 `quantity|tag` - Index of the block, or one of the string tags `latest`,
-`earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+`earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `quantity` - Index of the uncle.
 
@@ -2036,7 +2034,7 @@ block hash.
 
 #### Returns
 
-`result` : *QUANTITY* - Integer representing the number of uncles in the
+`result` : _QUANTITY_ - Integer representing the number of uncles in the
 specified block.
 
 !!! example
@@ -2100,12 +2098,12 @@ number.
 
 `QUANTITY|TAG` - Integer representing either the index of the block
 within the blockchain, or one of the string tags `latest`, `earliest`,
-or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result` : *QUANTITY* - Integer representing the number of uncles in the
+`result` : _QUANTITY_ - Integer representing the number of uncles in the
 specified block.
 
 !!! example
@@ -2170,12 +2168,12 @@ stores compiled smart contract code as a hexadecimal value.
 `DATA` - 20-byte contract address.
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
-`result` : *DATA* - Code stored at the specified address.
+`result` : _DATA_ - Code stored at the specified address.
 
 !!! example
 
@@ -2231,10 +2229,10 @@ Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 ### `eth_sendRawTransaction`
 
-Sends a [signed
-transaction](../HowTo/Send-Transactions/Transactions.md). A transaction
-can send ether, deploy a contract, or interact with a contract. Set the
-maximum transaction fee for transactions using the
+Sends a
+[signed transaction](../HowTo/Send-Transactions/Transactions.md). A
+transaction can send ether, deploy a contract, or interact with a
+contract. Set the maximum transaction fee for transactions using the
 [`--rpc-tx-feecap`](CLI/CLI-Syntax.md#rpc-tx-feecap) CLI option.
 
 You can interact with contracts using `eth_sendRawTransaction` or
@@ -2325,12 +2323,12 @@ You can interact with contracts using
 
 #### Parameters
 
-*OBJECT* - [Transaction call
-object](API-Objects.md#transaction-call-object).
+_OBJECT_ -
+[Transaction call object](API-Objects.md#transaction-call-object).
 
-*QUANTITY\|TAG* - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+_QUANTITY\|TAG_ - Integer representing a block number or one of the
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 !!! note
 
@@ -2418,8 +2416,8 @@ For `eth_estimateGas`, all fields are optional because setting a gas
 limit is irrelevant to the estimation process (unlike transactions, in
 which gas limits apply).
 
-`object` - [Transaction call
-object](API-Objects.md#transaction-call-object).
+`object` -
+[Transaction call object](API-Objects.md#transaction-call-object).
 
 #### Returns
 
@@ -2522,13 +2520,13 @@ Returns information about the block by hash.
 
 `DATA` - 32-byte hash of a block.
 
-`Boolean` - If `true`, returns the full [transaction
-objects](API-Objects.md#transaction-object); if `false`, returns the
-transaction hashes.
+`Boolean` - If `true`, returns the full
+[transaction objects](API-Objects.md#transaction-object); if `false`,
+returns the transaction hashes.
 
 #### Returns
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or
+`result` : _OBJECT_ - [Block object](API-Objects.md#block-object) , or
 `null` when there is no block.
 
 !!! example
@@ -2647,16 +2645,16 @@ Returns information about a block by block number.
 #### Parameters
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-`Boolean` - If `true`, returns the full [transaction
-objects](API-Objects.md#transaction-object); if `false`, returns only
-the hashes of the transactions.
+`Boolean` - If `true`, returns the full
+[transaction objects](API-Objects.md#transaction-object); if `false`,
+returns only the hashes of the transactions.
 
 #### Returns
 
-`result` : *OBJECT* - [Block object](API-Objects.md#block-object) , or
+`result` : _OBJECT_ - [Block object](API-Objects.md#block-object) , or
 `null` when there is no block.
 
 !!! example
@@ -3001,8 +2999,8 @@ transaction index position.
 #### Parameters
 
 `QUANTITY|TAG` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `QUANTITY` - The transaction index position.
 
@@ -3097,9 +3095,9 @@ Object - [Transaction object](API-Objects.md#transaction-object), or
 Returns the receipt of a transaction by transaction hash. Receipts for
 pending transactions are not available.
 
-If you enabled [revert
-reason](../HowTo/Send-Transactions/Revert-Reason.md), the receipt
-includes available revert reasons in the response.
+If you enabled
+[revert reason](../HowTo/Send-Transactions/Revert-Reason.md), the
+receipt includes available revert reasons in the response.
 
 #### Parameters
 
@@ -3107,9 +3105,9 @@ includes available revert reasons in the response.
 
 #### Returns
 
-`Object` - [Transaction receipt
-object](API-Objects.md#transaction-receipt-object), or `null` when there
-is no receipt.
+`Object` -
+[Transaction receipt object](API-Objects.md#transaction-receipt-object),
+or `null` when there is no receipt.
 
 !!! example
 
@@ -3222,8 +3220,8 @@ associated with the filter, use
 
 #### Parameters
 
-`Object` - [Filter options
-object](API-Objects.md#filter-options-object).
+`Object` -
+[Filter options object](API-Objects.md#filter-options-object).
 
 !!! note
 
@@ -3388,11 +3386,11 @@ occurred since the last poll.
 `result` : `Array of Object` - If nothing changed since the last poll,
 an empty list. Otherwise:
 
--   For filters created with `eth_newBlockFilter`, returns block hashes.
--   For filters created with `eth_newPendingTransactionFilter`, returns
-    transaction hashes.
--   For filters created with `eth_newFilter`, returns [log
-    objects](API-Objects.md#log-object).
+- For filters created with `eth_newBlockFilter`, returns block hashes.
+- For filters created with `eth_newPendingTransactionFilter`, returns
+  transaction hashes.
+- For filters created with `eth_newFilter`, returns
+  [log objects](API-Objects.md#log-object).
 
 !!! example
 
@@ -3553,8 +3551,8 @@ retrieval performance.
 
 #### Parameters
 
-`Object` - [Filter options
-object](API-Objects.md#filter-options-object).
+`Object` -
+[Filter options object](API-Objects.md#filter-options-object).
 
 #### Returns
 
@@ -3682,12 +3680,12 @@ None
 
 `result` : Array with the following fields:
 
--   `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
--   `DATA`, 32 Bytes - The seed hash used for the DAG.
--   `DATA`, 32 Bytes - The required target boundary condition: 2^256 /
-    difficulty.
--   `QUANTITY` - Hexadecimal integer representing the current block
-    number.
+- `DATA`, 32 Bytes - Hash of the current block header (pow-hash).
+- `DATA`, 32 Bytes - The seed hash used for the DAG.
+- `DATA`, 32 Bytes - The required target boundary condition: 2^256 /
+  difficulty.
+- `QUANTITY` - Hexadecimal integer representing the current block
+  number.
 
 !!! example
 
@@ -3727,8 +3725,8 @@ Used by mining software such as
 
 #### Parameters
 
--   DATA, 32 Bytes - Hexadecimal string representation of the hash rate.
--   DATA, 32 Bytes - Random hexadecimal ID identifying the client.
+- DATA, 32 Bytes - Hexadecimal string representation of the hash rate.
+- DATA, 32 Bytes - Random hexadecimal ID identifying the client.
 
 #### Returns
 
@@ -3768,9 +3766,9 @@ Used by mining software such as
 
 #### Parameters
 
--   DATA, 8 Bytes - Retrieved nonce.
--   DATA, 32 Bytes - Hash of the block header (PoW-hash).
--   DATA, 32 Bytes - Mix digest.
+- DATA, 8 Bytes - Retrieved nonce.
+- DATA, 32 Bytes - Hash of the block header (PoW-hash).
+- DATA, 32 Bytes - Mix digest.
 
 #### Returns
 
@@ -3811,8 +3809,8 @@ Used by mining software such as
 
 ### `clique_discard`
 
-Discards a proposal to [add or remove a signer with the specified
-address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Discards a proposal to
+[add or remove a signer with the specified address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
 #### Parameters
 
@@ -3848,14 +3846,14 @@ address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-si
 
 ### `clique_getSigners`
 
-Lists [signers for the specified
-block](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Lists
+[signers for the specified block](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
 #### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
@@ -3889,31 +3887,31 @@ Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 Provides validator metrics for the specified range:
 
--   Number of blocks from each validator.
--   Block number of the last block proposed by each validator (if any
-    proposed in the specified range).
--   All validators present in the last block.
+- Number of blocks from each validator.
+- Block number of the last block proposed by each validator (if any
+  proposed in the specified range).
+- All validators present in the last block.
 
 #### Parameters
 
 `fromBlockNumber` - Integer representing a block number or the string
-tag `earliest`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+tag `earliest`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `toBlockNumber` - Integer representing a block number or one of the
-string tags `latest` or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+string tags `latest` or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 If you specify:
 
--   No parameters, the call provides metrics for the last 100 blocks, or
-    all blocks if there are less than 100 blocks.
--   Only the first parameter, the call provides metrics for all blocks
-    from the block specified to the latest block.
+- No parameters, the call provides metrics for the last 100 blocks, or
+  all blocks if there are less than 100 blocks.
+- Only the first parameter, the call provides metrics for all blocks
+  from the block specified to the latest block.
 
 #### Returns
 
-`result`: *object* - List of validator objects.
+`result`: _object_ - List of validator objects.
 
 !!! note
 
@@ -3997,8 +3995,8 @@ Lists signers for the specified block.
 
 ### `clique_propose`
 
-Propose to [add or remove a signer with the specified
-address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Propose to
+[add or remove a signer with the specified address](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
 #### Parameters
 
@@ -4037,8 +4035,8 @@ removing signer.
 
 ### `clique_proposals`
 
-Returns [current
-proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
+Returns
+[current proposals](../HowTo/Configure/Consensus-Protocols/Clique.md#adding-and-removing-signers).
 
 #### Parameters
 
@@ -4046,7 +4044,7 @@ None
 
 #### Returns
 
-`result`:*object* - Map of account addresses to corresponding boolean
+`result`:_object_ - Map of account addresses to corresponding boolean
 values indicating the proposal for each account.
 
 If the boolean value is `true`, the proposal is to add a signer. If
@@ -4110,10 +4108,9 @@ Returns the accounts for a specified block.
 
 `result`:`object` - Account details:
 
--   `addressMap`:`object` - List of address hashes and account
-    addresses.
--   `nextKey`:`data` - Hash of the next address if any addresses remain
-    in the state, otherwise zero.
+- `addressMap`:`object` - List of address hashes and account addresses.
+- `nextKey`:`data` - Hash of the next address if any addresses remain in
+  the state, otherwise zero.
 
 !!! example
 
@@ -4150,11 +4147,11 @@ Returns the accounts for a specified block.
 
 ### `debug_batchSendRawTransaction`
 
-Sends a list of [signed
-transactions](../HowTo/Send-Transactions/Transactions.md). This is used
-to quickly load a network with a lot of transactions. This does the same
-thing as calling [`eth_sendRawTransaction`](#eth_sendRawTransaction)
-multiple times.
+Sends a list of
+[signed transactions](../HowTo/Send-Transactions/Transactions.md). This
+is used to quickly load a network with a lot of transactions. This does
+the same thing as calling
+[`eth_sendRawTransaction`](#eth_sendRawTransaction) multiple times.
 
 #### Parameters
 
@@ -4162,15 +4159,15 @@ multiple times.
 
 #### Returns
 
-`result` : *array* of *objects* - Object returned for each transaction.
+`result` : _array_ of _objects_ - Object returned for each transaction.
 
 Properties of the transaction result object are:
 
--   `index` - The index of the transaction in the request parameters
-    array.
--   `success` - A boolean indicating whether or not the transaction has
-    been added to the transaction pool.
--   `errorMessage` - An optional error message.
+- `index` - The index of the transaction in the request parameters
+  array.
+- `success` - A boolean indicating whether or not the transaction has
+  been added to the transaction pool.
+- `errorMessage` - An optional error message.
 
 !!! example
 
@@ -4313,7 +4310,7 @@ to view the trace for a valid block.
 ### `debug_storageRangeAt`
 
 [Remix](https://remix.ethereum.org/) uses `debug_storageRangeAt` to
-implement debugging. Use the *Debugger* tab in Remix instead of calling
+implement debugging. Use the _Debugger_ tab in Remix instead of calling
 `debug_storageRangeAt` directly.
 
 Returns the contract storage for the specified range.
@@ -4375,9 +4372,9 @@ based on the JVM implementation used.
 
 The metric types are:
 
--   Timer
--   Counter
--   Gauge.
+- Timer
+- Counter
+- Gauge.
 
 #### Parameters
 
@@ -4505,7 +4502,7 @@ None
 ### `debug_traceTransaction`
 
 [Remix](https://remix.ethereum.org/) uses `debug_traceTransaction` to
-implement debugging. Use the *Debugger* tab in Remix instead of calling
+implement debugging. Use the _Debugger_ tab in Remix instead of calling
 `debug_traceTransaction` directly.
 
 Reruns the transaction with the same state as when the transaction
@@ -4517,9 +4514,9 @@ executed.
 
 `Object` - request options (all optional and default to `false`):
 
--   `disableStorage` : `boolean` - `true` disables storage capture.
--   `disableMemory` : `boolean` - `true` disables memory capture.
--   `disableStack` : `boolean` - `true` disables stack capture.
+- `disableStorage` : `boolean` - `true` disables storage capture.
+- `disableMemory` : `boolean` - `true` disables memory capture.
+- `disableStack` : `boolean` - `true` disables stack capture.
 
 #### Returns
 
@@ -4574,9 +4571,9 @@ in the block.
 
 `Object` - request options (all optional and default to `false`):
 
--   `disableStorage` : `boolean` - `true` disables storage capture.
--   `disableMemory` : `boolean` - `true` disables memory capture.
--   `disableStack` : `boolean` - `true` disables stack capture.
+- `disableStorage` : `boolean` - `true` disables storage capture.
+- `disableMemory` : `boolean` - `true` disables memory capture.
+- `disableStack` : `boolean` - `true` disables stack capture.
 
 #### Returns
 
@@ -4631,14 +4628,14 @@ in the block.
 
 `Object` - request options (all optional and default to `false`):
 
--   `disableStorage` : `boolean` - `true` disables storage capture.
--   `disableMemory` : `boolean` - `true` disables memory capture.
--   `disableStack` : `boolean` - `true` disables stack capture.
+- `disableStorage` : `boolean` - `true` disables storage capture.
+- `disableMemory` : `boolean` - `true` disables memory capture.
+- `disableStack` : `boolean` - `true` disables stack capture.
 
 #### Returns
 
-`result`:`array of objects` - [Trace
-objects](API-Objects.md#trace-object).
+`result`:`array of objects` -
+[Trace objects](API-Objects.md#trace-object).
 
 !!! example
 
@@ -4691,19 +4688,19 @@ in the block.
 #### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `Object` - request options (all optional and default to `false`):
 
--   `disableStorage` : `boolean` - `true` disables storage capture.
--   `disableMemory` : `boolean` - `true` disables memory capture.
--   `disableStack` : `boolean` - `true` disables stack capture.
+- `disableStorage` : `boolean` - `true` disables storage capture.
+- `disableMemory` : `boolean` - `true` disables memory capture.
+- `disableStack` : `boolean` - `true` disables stack capture.
 
 #### Returns
 
-`result`:`array of objects` - [Trace
-objects](API-Objects.md#trace-object).
+`result`:`array of objects` -
+[Trace objects](API-Objects.md#trace-object).
 
 !!! example
 
@@ -4756,7 +4753,7 @@ objects](API-Objects.md#trace-object).
     methods, use the [`--rpc-http-api`](CLI/CLI-Syntax.md#rpc-http-api) or
     [`--rpc-ws-api`](CLI/CLI-Syntax.md#rpc-ws-api) options.
 
-### miner\_changeTargetGasLimit
+### miner_changeTargetGasLimit
 
 Updates the target gas limit set using the
 [`--target-gas-limit`](CLI/CLI-Syntax.md#target-gas-limit) command line
@@ -4881,8 +4878,8 @@ mining.
 
 ### `ibft_discardValidatorVote`
 
-Discards a proposal to [add or remove a
-validator](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
+Discards a proposal to
+[add or remove a validator](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
 with the specified address.
 
 #### Parameters
@@ -5010,8 +5007,8 @@ Lists the validators defined in the specified block.
 #### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
@@ -5047,8 +5044,8 @@ Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 ### `ibft_proposeValidatorVote`
 
-Propose to [add or remove a
-validator](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
+Propose to
+[add or remove a validator](../HowTo/Configure/Consensus-Protocols/IBFT.md#adding-and-removing-validators)
 with the specified address.
 
 #### Parameters
@@ -5090,31 +5087,31 @@ removing validator.
 
 Provides validator metrics for the specified range:
 
--   Number of blocks from each validator.
--   Block number of the last block proposed by each validator (if any
-    proposed in the specified range).
--   All validators present in the last block of the range.
+- Number of blocks from each validator.
+- Block number of the last block proposed by each validator (if any
+  proposed in the specified range).
+- All validators present in the last block of the range.
 
 #### Parameters
 
 `fromBlockNumber` - Integer representing a block number or the string
-tag `earliest` as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+tag `earliest` as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 `toBlockNumber` - Integer representing a block number or one of the
-string tags `latest` or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
+string tags `latest` or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter)
 
 If you specify:
 
--   No parameters, the call provides metrics for the last 100 blocks, or
-    all blocks if there are less than 100 blocks.
--   Only the first parameter, the call provides metrics for all blocks
-    from the block specified to the latest block.
+- No parameters, the call provides metrics for the last 100 blocks, or
+  all blocks if there are less than 100 blocks.
+- Only the first parameter, the call provides metrics for all blocks
+  from the block specified to the latest block.
 
 #### Returns
 
-`result`: *object* - List of validator objects
+`result`: _object_ - List of validator objects
 
 !!! note
 
@@ -5174,8 +5171,8 @@ only.
 
 ### `perm_addAccountsToAllowlist`
 
-Adds accounts (participants) to the [accounts permission
-list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
+Adds accounts (participants) to the
+[accounts permission list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -5218,8 +5215,8 @@ addresses.
 
 ### `perm_getAccountsAllowlist`
 
-Lists accounts (participants) in the [accounts permissions
-list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
+Lists accounts (participants) in the
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -5258,8 +5255,8 @@ None
 
 ### `perm_removeAccountsFromAllowlist`
 
-Removes accounts (participants) from the [accounts permissions
-list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
+Removes accounts (participants) from the
+[accounts permissions list](../HowTo/Limit-Access/Local-Permissioning.md#account-permissioning).
 
 #### Parameters
 
@@ -5301,13 +5298,13 @@ accounts not on the allowlist or including invalid account addresses.
 
 ### `perm_addNodesToAllowlist`
 
-Adds nodes to the [nodes
-allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+Adds nodes to the
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
-`list of strings` - List of [enode
-URLs](../Concepts/Node-Keys.md#enode-url).
+`list of strings` - List of
+[enode URLs](../Concepts/Node-Keys.md#enode-url).
 
 !!! note
 
@@ -5345,8 +5342,8 @@ already on the allowlist or including invalid enode URLs.
 
 ### `perm_getNodesAllowlist`
 
-Lists nodes in the [nodes
-allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+Lists nodes in the
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
@@ -5386,13 +5383,13 @@ nodes in the nodes allowlist.
 
 ### `perm_removeNodesFromAllowlist`
 
-Removes nodes from the [nodes
-allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
+Removes nodes from the
+[nodes allowlist](../HowTo/Limit-Access/Local-Permissioning.md#node-allowlisting).
 
 #### Parameters
 
-`list of strings` - List of [enode
-URLs](../Concepts/Node-Keys.md#enode-url)
+`list of strings` - List of
+[enode URLs](../Concepts/Node-Keys.md#enode-url)
 
 !!! note
 
@@ -5430,9 +5427,8 @@ nodes not on the allowlist or including invalid enode URLs.
 
 ### `perm_reloadPermissionsFromFile`
 
-Reloads the accounts and nodes allowlists from the [permissions
-configuration
-file](../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file).
+Reloads the accounts and nodes allowlists from the
+[permissions configuration file](../HowTo/Limit-Access/Local-Permissioning.md#permissions-configuration-file).
 
 #### Parameters
 
@@ -5481,9 +5477,9 @@ Lists pending transactions that match the supplied filter conditions.
 
 #### Parameters
 
--   `QUANTITY` - Integer representing the maximum number of results to
-    return.
--   Object of fields used to create the filter condition.
+- `QUANTITY` - Integer representing the maximum number of results to
+  return.
+- Object of fields used to create the filter condition.
 
 Each field in the object corresponds to a field name containing an
 operator, and a value for the operator. A field name can only be
@@ -5495,28 +5491,28 @@ All filters must be satisfied for a transaction to be returned.
 
 \| Field name \| Value \| Value type \| Supported operators \|
 \|--------------\|-------------------------------------------\|:---------------------:\|---------------------\|
-\| **from** \| Address of the sender. \| *Data*, 20 bytes \| `eq` \| \|
-**to** \| Address of the receiver, or `"contract_creation"`.\| *Data*,
+\| **from** \| Address of the sender. \| _Data_, 20 bytes \| `eq` \| \|
+**to** \| Address of the receiver, or `"contract_creation"`.\| _Data_,
 20 bytes \|`eq`, `action`\| \| **gas** \| Gas provided by the sender. \|
-*Quantity* \| `eq`, `gt`, `lt` \| \| **gasPrice** \| Gas price, in wei,
-provided by the sender.\| *Quantity* \| `eq`, `gt`, `lt` \| \| **value**
-\| Value transferred, in wei. \| *Quantity* \| `eq`, `gt`, `lt` \| \|
-**nonce** \| Number of transactions made by the sender.\| *Quantity* \|
+_Quantity_ \| `eq`, `gt`, `lt` \| \| **gasPrice** \| Gas price, in wei,
+provided by the sender.\| _Quantity_ \| `eq`, `gt`, `lt` \| \| **value**
+\| Value transferred, in wei. \| _Quantity_ \| `eq`, `gt`, `lt` \| \|
+**nonce** \| Number of transactions made by the sender.\| _Quantity_ \|
 `eq`, `gt`, `lt` \| \|
 
 Supported operators:
 
--   `eq` (Equal to)
--   `lt` (Less than)
--   `gt` (Greater than)
--   `action`
+- `eq` (Equal to)
+- `lt` (Less than)
+- `gt` (Greater than)
+- `action`
 
 !!! note The only supported `action` is `"contract_creation"`.
 
 #### Returns
 
-`result` - Array of objects with [details of the pending
-transaction](API-Objects.md#pending-transaction-object).
+`result` - Array of objects with
+[details of the pending transaction](API-Objects.md#pending-transaction-object).
 
 !!! example
 
@@ -5604,13 +5600,12 @@ None
 
 `result` - Transaction pool statistics:
 
--   `maxSize` - Maximum number of transactions kept in the transaction
-    pool. Use the
-    [`--tx-pool-max-size`](CLI/CLI-Syntax.md#tx-pool-max-size) option to
-    configure the maximum size.
--   `localCount` - Number of transactions submitted directly to this
-    node.
--   `remoteCount` - Number of transactions received from remote nodes.
+- `maxSize` - Maximum number of transactions kept in the transaction
+  pool. Use the
+  [`--tx-pool-max-size`](CLI/CLI-Syntax.md#tx-pool-max-size) option to
+  configure the maximum size.
+- `localCount` - Number of transactions submitted directly to this node.
+- `remoteCount` - Number of transactions received from remote nodes.
 
 !!! example
 
@@ -5710,18 +5705,18 @@ Provides transaction processing tracing per block.
 #### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
-`array of strings` - Tracing options are [`trace`, `vmTrace`, and
-`stateDiff`](Trace-Types.md). Specify any combination of the three
-options including none of them.
+`array of strings` - Tracing options are
+[`trace`, `vmTrace`, and `stateDiff`](Trace-Types.md). Specify any
+combination of the three options including none of them.
 
 #### Returns
 
-`result` - Array of [transaction trace
-objects](API-Objects.md#transaction-trace-object) containing one object
-per transaction, in transaction execution order.
+`result` - Array of
+[transaction trace objects](API-Objects.md#transaction-trace-object)
+containing one object per transaction, in transaction execution order.
 
 !!! example
 
@@ -5825,8 +5820,8 @@ for the specified block.
 #### Parameters
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
@@ -6051,22 +6046,22 @@ containing one object per call, in the order called by the transaction.
 
 ### `eea_sendRawTransaction`
 
-Distributes the [private
-transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
-generates the [privacy marker
-transaction](../Concepts/Privacy/Private-Transaction-Processing.md) and
-submits it to the transaction pool, and returns the transaction hash of
-the [privacy marker
-transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
+Distributes the
+[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md),
+generates the
+[privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+and submits it to the transaction pool, and returns the transaction hash
+of the
+[privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
 The signed transaction passed as an input parameter includes the
-`privateFrom`, [`privateFor` or
-`privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
+`privateFrom`,
+[`privateFor` or `privacyGroupId`](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md#eea-compliant-or-besu-extended-privacy),
 and `restriction` fields.
 
-The `gas` and `gasPrice` are used by the [privacy marker
-transaction](../Concepts/Privacy/Private-Transaction-Processing.md) not
-the private transaction itself.
+The `gas` and `gasPrice` are used by the
+[privacy marker transaction](../Concepts/Privacy/Private-Transaction-Processing.md)
+not the private transaction itself.
 
 To avoid exposing your private key, create signed transactions offline
 and send the signed transaction data using `eea_sendRawTransaction`.
@@ -6095,8 +6090,8 @@ and send the signed transaction data using `eea_sendRawTransaction`.
 
 #### Returns
 
-`result` : `data` - 32-byte transaction hash of the [Privacy Marker
-Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
+`result` : `data` - 32-byte transaction hash of the
+[Privacy Marker Transaction](../Concepts/Privacy/Private-Transaction-Processing.md).
 
 !!! tip
 
@@ -6145,15 +6140,15 @@ For private contracts, `priv_call` is the same as
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
-`object` - [Transaction call
-object](API-Objects.md#transaction-call-object).
+`object` -
+[Transaction call object](API-Objects.md#transaction-call-object).
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
@@ -6221,8 +6216,8 @@ Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 ### `priv_distributeRawTransaction`
 
-Distributes a signed, RLP encoded [private
-transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
+Distributes a signed, RLP encoded
+[private transaction](../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.md).
 
 !!! tip
 
@@ -6268,8 +6263,7 @@ the private transaction in [Orion](https://docs.orion.consensys.net/).
 ### `priv_getEeaTransactionCount`
 
 Returns the private transaction count for the specified account and
-[group of sender and
-recipients](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy).
+[group of sender and recipients](../Concepts/Privacy/Privacy-Groups.md#enterprise-ethereum-alliance-privacy).
 
 !!! important
 
@@ -6326,8 +6320,8 @@ always returns an array of log objects or an empty list.
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
 `data` - Filter ID.
 
@@ -6382,9 +6376,9 @@ specified filter for a private contract.
 
 For private contracts, `priv_getFilterLogs` is the same as
 [`eth_getFilterLogs`](#eth_getfilterlogs) for public contracts except
-there is no [automatic log bloom
-caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) for private
-contracts.
+there is no
+[automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+for private contracts.
 
 !!! note
 
@@ -6393,8 +6387,8 @@ contracts.
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
 `data` - Filter ID.
 
@@ -6462,17 +6456,16 @@ specified filter object.
 
 For private contracts, `priv_getLogs` is the same as
 [`eth_getLogs`](#eth_getlogs) for public contracts except there is no
-[automatic log bloom
-caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled) for private
-contracts.
+[automatic log bloom caching](CLI/CLI-Syntax.md#auto-log-bloom-caching-enabled)
+for private contracts.
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
-`Object` - [Filter options
-object](API-Objects.md#filter-options-object).
+`Object` -
+[Filter options object](API-Objects.md#filter-options-object).
 
 #### Returns
 
@@ -6533,9 +6526,9 @@ object](API-Objects.md#filter-options-object).
 
 ### `priv_getPrivacyPrecompileAddress`
 
-Returns the address of the [privacy precompiled
-contract](../Concepts/Privacy/Private-Transaction-Processing.md). The
-address is derived and based on the value of the
+Returns the address of the
+[privacy precompiled contract](../Concepts/Privacy/Private-Transaction-Processing.md).
+The address is derived and based on the value of the
 [`privacy-onchain-groups-enabled`](CLI/CLI-Syntax.md#privacy-onchain-groups-enabled)
 option.
 
@@ -6584,9 +6577,9 @@ Returns the private transaction if you are a participant, otherwise,
 
 #### Returns
 
-Object - [Private transaction
-object](API-Objects.md#private-transaction-object), or `null` if not a
-participant in the private transaction.
+Object -
+[Private transaction object](API-Objects.md#private-transaction-object),
+or `null` if not a participant in the private transaction.
 
 !!! example
 
@@ -6638,10 +6631,10 @@ Creates a group of nodes, specified by their
 
 `Object` - Request options:
 
--   `addresses`: `array of data` - Array of nodes, specified by
-    [Orion](https://docs.orion.consensys.net/) public keys.
--   `name`: `string` - Privacy group name. Optional.
--   `description`: `string` - Privacy group description. Optional.
+- `addresses`: `array of data` - Array of nodes, specified by
+  [Orion](https://docs.orion.consensys.net/) public keys.
+- `name`: `string` - Privacy group name. Optional.
+- `description`: `string` - Privacy group description. Optional.
 
 #### Returns
 
@@ -6726,8 +6719,8 @@ or
 [Besu-extended](../Concepts/Privacy/Privacy-Groups.md#besu-extended-privacy)
 with types:
 
--   `LEGACY` for EEA-compliant groups.
--   `PANTHEON` for Besu-extended groups.
+- `LEGACY` for EEA-compliant groups.
+- `PANTHEON` for Besu-extended groups.
 
 !!! example
 
@@ -6771,14 +6764,14 @@ Compiled smart contract code is stored as a hexadecimal value.
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
 `data` - 20-byte contract address.
 
 `quantity|tag` - Integer representing a block number or one of the
-string tags `latest`, `earliest`, or `pending`, as described in [Block
-Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
+string tags `latest`, `earliest`, or `pending`, as described in
+[Block Parameter](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#block-parameter).
 
 #### Returns
 
@@ -6865,9 +6858,9 @@ transaction. Receipts for pending transactions are not available.
 
 #### Returns
 
-`Object` - [Private Transaction receipt
-object](API-Objects.md#private-transaction-receipt-object), or `null` if
-no receipt found.
+`Object` -
+[Private Transaction receipt object](API-Objects.md#private-transaction-receipt-object),
+or `null` if no receipt found.
 
 !!! example
 
@@ -6920,11 +6913,11 @@ For private contracts, `priv_newFilter` is the same as
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
-`Object` - [Filter options
-object](API-Objects.md#filter-options-object).
+`Object` -
+[Filter options object](API-Objects.md#filter-options-object).
 
 !!! note
 
@@ -6972,8 +6965,8 @@ For private contracts, `priv_uninstallFilter` is the same as
 
 #### Parameters
 
-`data` - 32-byte [privacy Group
-ID](../Concepts/Privacy/Privacy-Groups.md).
+`data` - 32-byte
+[privacy Group ID](../Concepts/Privacy/Privacy-Groups.md).
 
 `data` - Filter ID.
 
@@ -7054,8 +7047,8 @@ Reloads specified plugin configuration.
 
 ### `rpc_modules`
 
-Lists [enabled
-APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default)
+Lists
+[enabled APIs](../HowTo/Interact/APIs/Using-JSON-RPC-API.md#api-methods-enabled-by-default)
 and the version of each.
 
 #### Parameters

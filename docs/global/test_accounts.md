@@ -1,5 +1,5 @@
-!!! warning
-    Do not use the following accounts on mainnet or any public network except for testing.
+!!! warning Do not use the following accounts on mainnet or any public
+network except for testing.
 
     The private keys are displayed here which means the accounts are not secure.
 

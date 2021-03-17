@@ -6,13 +6,14 @@ description: Hyperledger Besu EVM Tool Reference
 
 Options for running:
 
-* [Arbitrary EVM programs](#run-options)
-* [Ethereum State Tests](#state-test-options).
+- [Arbitrary EVM programs](#run-options)
+- [Ethereum State Tests](#state-test-options).
 
 ## Run Options
 
-The first mode of the EVM tool runs an arbitrary EVM and is invoked without an extra command. Command Line
-Options specify the code and other contextual information.
+The first mode of the EVM tool runs an arbitrary EVM and is invoked
+without an extra command. Command Line Options specify the code and
+other contextual information.
 
 ### `code`
 
@@ -46,8 +47,9 @@ No default value: execution fails if this is not set.
     --gas=100000000
     ```
 
-Amount of gas to make available to the EVM.  The default value is 10 Billion, an incredibly large number
-unlikely to be seen in any production blockchain.
+Amount of gas to make available to the EVM. The default value is 10
+Billion, an incredibly large number unlikely to be seen in any
+production blockchain.
 
 ### `price`
 
@@ -63,9 +65,8 @@ unlikely to be seen in any production blockchain.
     --price=10
     ```
 
-Price of gas in GWei.
-The default is zero.
-If set to a non-zero value, the sender account must have enough value to cover the gas fees.
+Price of gas in GWei. The default is zero. If set to a non-zero value,
+the sender account must have enough value to cover the gas fees.
 
 ### `sender`
 
@@ -81,9 +82,10 @@ If set to a non-zero value, the sender account must have enough value to cover t
     --sender=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
     ```
 
-The account the invocation is sent from.
-The specified account must exist in the world state, which unless specified by `--genesis`
-or `--prestate` is the set of [accounts used for testing](Accounts-for-Testing.md).
+The account the invocation is sent from. The specified account must
+exist in the world state, which unless specified by `--genesis` or
+`--prestate` is the set of
+[accounts used for testing](Accounts-for-Testing.md).
 
 ### `receiver`
 
@@ -99,8 +101,8 @@ or `--prestate` is the set of [accounts used for testing](Accounts-for-Testing.m
     --receiver=0x588108d3eab34e94484d7cda5a1d31804ca96fe7
     ```
 
-The account the invocation is sent to.
-The specified account does not need to exist.
+The account the invocation is sent to. The specified account does not
+need to exist.
 
 ### `input`
 
@@ -116,8 +118,8 @@ The specified account does not need to exist.
     --input=9064129300000000000000000000000000000000000000000000000000000000
     ```
 
-The data passed into the call.
-Corresponds to the `data` field of the transaction and is returned by  the `CALLDATA` and related opcodes.
+The data passed into the call. Corresponds to the `data` field of the
+transaction and is returned by the `CALLDATA` and related opcodes.
 
 ### `value`
 
@@ -133,9 +135,10 @@ Corresponds to the `data` field of the transaction and is returned by  the `CALL
     --value=1000000000000000000
     ```
 
-The value of Ether attached to this transaction.
-For operations that query the value or transfer it to other accounts this is the amount that is available.
-The amount is not reduced to cover intrinsic cost and gas fees.
+The value of Ether attached to this transaction. For operations that
+query the value or transfer it to other accounts this is the amount that
+is available. The amount is not reduced to cover intrinsic cost and gas
+fees.
 
 ### `json`
 
@@ -151,7 +154,8 @@ The amount is not reduced to cover intrinsic cost and gas fees.
     --json=true
     ```
 
-Provide an operation-by-operation trace of the command in JSON when set to true.
+Provide an operation-by-operation trace of the command in JSON when set
+to true.
 
 ### `nomemory`
 
@@ -167,8 +171,9 @@ Provide an operation-by-operation trace of the command in JSON when set to true.
     --nomemory=true
     ```
 
-By default, when tracing operations the memory is traced for each operation.
-For memory heavy scripts, setting this option may reduce the volume of JSON output.
+By default, when tracing operations the memory is traced for each
+operation. For memory heavy scripts, setting this option may reduce the
+volume of JSON output.
 
 ### `genesis`
 
@@ -184,9 +189,10 @@ For memory heavy scripts, setting this option may reduce the volume of JSON outp
     --genesis=/opt/besu/genesis.json
     ```
 
-The Besu Genesis file to use when evaluating the EVM.
-Most useful are the `alloc` items that set up accounts and their stored memory states.
-For a complete description of this file see [Genesis File Items](Config-Items.md).
+The Besu Genesis file to use when evaluating the EVM. Most useful are
+the `alloc` items that set up accounts and their stored memory states.
+For a complete description of this file see
+[Genesis File Items](Config-Items.md).
 
 `--prestate` is a deprecated alternative option name.
 
@@ -205,7 +211,8 @@ For a complete description of this file see [Genesis File Items](Config-Items.md
     ```
 
 The well-known network genesis file to use when evaluating the EVM.
-These values are an alternative to the `--genesis` option for well known networks.
+These values are an alternative to the `--genesis` option for well known
+networks.
 
 ### `repeat`
 
@@ -221,8 +228,8 @@ These values are an alternative to the `--genesis` option for well known network
     --repeat=1000
     ```
 
-Number of times to repeat the contract before gathering timing information.
-This is useful when benchmarking EVM operations.
+Number of times to repeat the contract before gathering timing
+information. This is useful when benchmarking EVM operations.
 
 ### `revert-reason-enabled`
 
@@ -238,7 +245,8 @@ This is useful when benchmarking EVM operations.
     --revert-reason-enabled=true
     ```
 
-If enabled, the JSON tracing includes the reason included in `REVERT` operations.
+If enabled, the JSON tracing includes the reason included in `REVERT`
+operations.
 
 ### `key-value-storage`
 
@@ -256,12 +264,13 @@ If enabled, the JSON tracing includes the reason included in `REVERT` operations
 
 Kind of key value storage to use.
 
-Occasionally it may be useful to execute isolated EVM calls in context of an actual world state.
-The default is `memory`, which executes the call only in context of the world provided by `--genesis`
-or `--network` at block zero.
-When set to `rocksdb` and combined with `--data-path`, `--block-number`, and `--genesis` a Besu
-node that is not currently running can be used to provide the appropriate world state for a transaction.
-Useful when evaluating consensus failures.
+Occasionally it may be useful to execute isolated EVM calls in context
+of an actual world state. The default is `memory`, which executes the
+call only in context of the world provided by `--genesis` or `--network`
+at block zero. When set to `rocksdb` and combined with `--data-path`,
+`--block-number`, and `--genesis` a Besu node that is not currently
+running can be used to provide the appropriate world state for a
+transaction. Useful when evaluating consensus failures.
 
 ### `data-path`
 
@@ -277,7 +286,8 @@ Useful when evaluating consensus failures.
     --data-path=/opt/besu/data
     ```
 
-When using `rocksdb` for `key-value-storage`, specifies the location of the database on disk.
+When using `rocksdb` for `key-value-storage`, specifies the location of
+the database on disk.
 
 ### `block-number`
 
@@ -293,14 +303,15 @@ When using `rocksdb` for `key-value-storage`, specifies the location of the data
     --block-number=10000000
     ```
 
-The block number to evaluate the code against.
-Used to ensure that the EVM is evaluating the code against the correct fork, or to specify the
-specific world state when running with `rocksdb` for `key-value-storage`.
+The block number to evaluate the code against. Used to ensure that the
+EVM is evaluating the code against the correct fork, or to specify the
+specific world state when running with `rocksdb` for
+`key-value-storage`.
 
 ## State Test Options
 
-The `state-test` sub command allows the Ethereum State Tests to be evaluated.
-Most of the options from EVM execution do not apply.
+The `state-test` sub command allows the Ethereum State Tests to be
+evaluated. Most of the options from EVM execution do not apply.
 
 ### Applicable Options
 
@@ -318,15 +329,15 @@ Most of the options from EVM execution do not apply.
     --json=true
     ```
 
-Provide an operation by operation trace of the command in JSON when set to true.
-Set to true for EVMLab Fuzzing.
-Whether or not `json` is set, a summary JSON object is printed to standard output for each
-state test executed.
+Provide an operation by operation trace of the command in JSON when set
+to true. Set to true for EVMLab Fuzzing. Whether or not `json` is set, a
+summary JSON object is printed to standard output for each state test
+executed.
 
 ### Using command arguments
 
-If you use command arguments, you can list one or more state tests.
-All of the state tests are evaluated in the order they are specified.
+If you use command arguments, you can list one or more state tests. All
+of the state tests are evaluated in the order they are specified.
 
 === "Docker Example"
 
@@ -342,8 +353,9 @@ All of the state tests are evaluated in the order they are specified.
 
 ### Using Standard Input
 
-If no reference tests are passed in using the command line, the EVM Tool loads one complete JSON object
-from standard input and executes that state test.
+If no reference tests are passed in using the command line, the EVM Tool
+loads one complete JSON object from standard input and executes that
+state test.
 
 === "Docker Example"
 
